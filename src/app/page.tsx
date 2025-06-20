@@ -1,4 +1,5 @@
 import FeaturesSection from "./components/FeaturesSection";
+import Footer from "./components/Footer";
 import HeaderMain from "./components/HeaderMain";
 import HeroTwoSection from "./components/HeorTwoSection";
 import HeroSection from "./components/HeroSection";
@@ -14,6 +15,7 @@ export default function Home() {
       <OnlineAcademySection />
       <Testimonial />
       <HeroTwoSection />
+      <Footer />
     </div>
   );
 }
