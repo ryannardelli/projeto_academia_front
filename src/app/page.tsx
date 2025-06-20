@@ -1,3 +1,4 @@
+import FeaturesSection from "./components/FeaturesSection";
 import HeaderMain from "./components/HeaderMain";
 import HeroSection from "./components/HeroSection";
 
@@ -6,6 +7,7 @@ export default function Home() {
     <div>
       <HeaderMain />
       <HeroSection/>
+      <FeaturesSection />
     </div>
   );
 }

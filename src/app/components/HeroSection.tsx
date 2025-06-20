@@ -2,7 +2,7 @@ import React from "react";
 
 export default function HeroSection() {
   return (
-    <section className="bg-black text-white py-16 px-4 md:px-10">
+    <section className="bg-primary text-white py-16 px-4 md:px-10">
       <div className="max-w-6xl mx-auto text-center">
         <h1 className="text-4xl md:text-5xl font-bold mb-6">
           Transforme sua saúde com <br className="hidden md:block" />
