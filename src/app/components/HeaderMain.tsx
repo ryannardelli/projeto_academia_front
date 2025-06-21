@@ -63,10 +63,10 @@ function HeaderMain() {
         </div>
 
         <div className="flex items-center max-lg:ml-auto space-x-4">
-          <button type="button" className="bg-secondary hover:bg-assets px-4 py-2 rounded-full text-white text-[15px] font-medium flex items-center justify-center gap-2 cursor-pointer">
+          <a href='/login' className="bg-secondary hover:bg-assets px-4 py-2 rounded-full text-white text-[15px] font-medium flex items-center justify-center gap-2 cursor-pointer">
             <UserPlusIcon className="h-5 w-5" />
             Inscreva-se
-          </button>
+          </a>
 
           <button id="toggleOpen" onClick={handleToggleMenu} className="lg:hidden cursor-pointer">
             <svg className="w-7 h-7" fill="#fff" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
