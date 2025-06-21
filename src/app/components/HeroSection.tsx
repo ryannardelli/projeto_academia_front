@@ -14,12 +14,12 @@ export default function HeroSection() {
           acompanhamento profissional para você alcançar seus objetivos.
         </p>
         <div className="flex justify-center gap-4">
-          <button className="bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-6 rounded-full transition duration-300">
+          <a href="/login" className="bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-6 rounded-full transition duration-300">
             Saiba Mais
-          </button>
-          <button className="border border-white text-white font-semibold py-2 px-6 rounded-full hover:bg-white hover:text-black transition duration-300">
+          </a>
+          <a href="/login" className="border border-white text-white font-semibold py-2 px-6 rounded-full hover:bg-white hover:text-black transition duration-300">
             Inscreva-se
-          </button>
+          </a>
         </div>
       </div>
 
