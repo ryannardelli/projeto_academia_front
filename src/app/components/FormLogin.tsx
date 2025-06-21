@@ -77,20 +77,20 @@ function FormLogin() {
                     </button>
                 </div>
 
-<div className="mt-6">
-  <button
-    type="submit"
-    className="w-full py-2.5 px-4 text-[15px] font-medium rounded-lg text-white bg-blue-600 hover:bg-blue-700 transition duration-200"
-  >
-    Entrar
-  </button>
-  <p className="text-sm mt-6 text-center text-gray-400">
-    Ainda não tem conta?
-    <a href="#" className="text-blue-500 font-medium hover:underline ml-1">
-      Cadastre-se aqui
-    </a>
-  </p>
-</div>
+                <div className="mt-6">
+                  <button
+                    type="submit"
+                    className="w-full py-2.5 px-4 text-[15px] font-medium rounded-lg text-white bg-blue-600 hover:bg-blue-700 transition duration-200"
+                  >
+                    Entrar
+                  </button>
+                  <p className="text-sm mt-6 text-center text-gray-400">
+                    Ainda não tem conta?
+                    <a href="/register" className="text-blue-500 font-medium hover:underline ml-1">
+                      Cadastre-se aqui
+                    </a>
+                  </p>
+                </div>
             </form>
           </div>
 
