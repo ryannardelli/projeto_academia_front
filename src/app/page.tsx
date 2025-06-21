@@ -1,3 +1,4 @@
+import BackToTop from "./components/BackToTop";
 import FeaturesSection from "./components/FeaturesSection";
 import Footer from "./components/Footer";
 import HeaderMain from "./components/HeaderMain";
@@ -16,6 +17,7 @@ export default function Home() {
       <Testimonial />
       <HeroTwoSection />
       <Footer />
+      <BackToTop />
     </div>
   );
 }
