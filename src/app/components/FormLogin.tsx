@@ -97,7 +97,6 @@ function FormLogin() {
           <div className="max-lg:mt-8">
             <img
               src="assets/img/screen-login.svg"
-              className="rounded-md shadow-md"
               alt="Imagem de login"
             />
           </div>
