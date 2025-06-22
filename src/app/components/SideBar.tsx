@@ -12,8 +12,8 @@ function SideBar({ isActive }: Props) {
             <ul>                     
                <li>
                     <a href="#">
-                        <span className="icon">
-                            <HeartPulse />
+                        <span className="icon p-2">
+                            <HeartPulse className="w-[1.75rem] h-[1.75rem]" />
                         </span>                                                  
                         <span className="title text-assets font-bold text-lg tracking-wider uppercase">RedPulse</span>
                     </a>
@@ -21,8 +21,8 @@ function SideBar({ isActive }: Props) {
 
                 <li>
                     <a href="#">
-                        <span className="icon">
-                            <Grid /> 
+                        <span className="icon p-2">
+                            <Grid className="w-[1.75rem] h-[1.75rem]" /> 
                         </span>                                                  
                         <span className="title">Dashboard</span>
                     </a>
@@ -30,8 +30,8 @@ function SideBar({ isActive }: Props) {
 
                 <li>
                     <a href="#">
-                        <span className="icon">
-                            <Dumbbell />
+                        <span className="icon p-2">
+                            <Dumbbell className="w-[1.75rem] h-[1.75rem]" />
                         </span>
                         <span className="title">Treinos</span>
                     </a>
@@ -39,8 +39,8 @@ function SideBar({ isActive }: Props) {
 
                 <li>
                     <a href="#">
-                        <span className="icon">
-                            <Utensils />
+                        <span className="icon p-2">
+                            <Utensils className="w-[1.75rem] h-[1.75rem]" />
                         </span>
                         <span className="title">Deitas</span>
                     </a>
@@ -48,8 +48,8 @@ function SideBar({ isActive }: Props) {
 
                 <li>
                     <a href="#">
-                        <span className="icon">
-                            <LineChart />
+                        <span className="icon p-2">
+                            <LineChart className="w-[1.75rem] h-[1.75rem]" />
                         </span>
                         
                         <span className="title">Progresso</span>
@@ -58,8 +58,8 @@ function SideBar({ isActive }: Props) {
 
                     <li>
                     <a href="#">
-                        <span className="icon">
-                            <CreditCard />
+                        <span className="icon p-2">
+                            <CreditCard className="w-[1.75rem] h-[1.75rem]" />
                         </span>                           
                         <span className="title">Pagamentos</span>
                     </a>
@@ -67,8 +67,8 @@ function SideBar({ isActive }: Props) {
 
                 <li>
                     <a href="#">
-                        <span className="icon">
-                                <Settings />
+                        <span className="icon p-2">
+                                <Settings className="w-[1.75rem] h-[1.75rem]" />
                         </span>
                         <span className="title">Configurações</span>
                     </a>
@@ -76,8 +76,8 @@ function SideBar({ isActive }: Props) {
 
                 <li>
                     <a href="#">
-                        <span className="icon">
-                            <User />
+                        <span className="icon p-2">
+                            <User className="w-[1.75rem] h-[1.75rem]" />
                         </span>
                         <span className="title">Perfil</span>
                     </a>
@@ -85,8 +85,8 @@ function SideBar({ isActive }: Props) {
 
                 <li>
                     <a href="#">
-                        <span className="icon">
-                            <LogOut />
+                        <span className="icon p-2">
+                            <LogOut className="w-[1.75rem] h-[1.75rem]" />
                         </span>
                         <span className="title">Sair</span>
                     </a>
