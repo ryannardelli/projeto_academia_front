@@ -23,7 +23,7 @@
 
 .navigation ul li {
     position: relative;
-    width: 200%;
+    width: 100%;
     list-style: none;
     border-top-left-radius: 30px;
     border-bottom-left-radius: 30px;
@@ -33,7 +33,8 @@
     color: var(--blue);
 }
 
-.navigation ul li:hover {
+.navigation ul li:hover,
+.navigation ul li.hovered {
     background: var(--white);
 }
 
@@ -51,7 +52,8 @@
     color: var(--white);
 }
 
-.navigation ul li:hover a {
+.navigation ul li:hover a,
+.navigation ul li.hovered a {
     color: var(--blue);
 }
 
@@ -69,7 +71,7 @@
     display: block;
     padding: 0 10px;
     height: 60px;
-    line-height: 40px;
+    line-height: 47px;
     text-align: start;
     white-space: nowrap;
 }
@@ -78,6 +80,7 @@
     content: "";
     position: absolute;
     right: 0;
+    top: -50px;
     width: 50px;
     height: 50px;
     background: transparent;
@@ -86,7 +89,8 @@
     pointer-events: none;
 }
 
-.navigation ul li:hover a::after {
+.navigation ul li:hover a::after,
+.navigation ul li.hovered a::after {
     content: "";
     position: absolute;
     right: 0;
