@@ -1,10 +1,10 @@
-import Card from "./CardStats";
+import CardStats from "./CardStats";
 import DetailsList from "./DetailsList";
 
 function ContentDashboard() {
     return(
         <div>
-            <Card />
+            <CardStats />
             <DetailsList />
         </div>
     );

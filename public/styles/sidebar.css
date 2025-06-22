@@ -11,7 +11,7 @@
 }
 
 .navigation.active {
-    width: 45px;
+    width: 80px;
 }
 
 .navigation ul {
@@ -39,7 +39,7 @@
 
 .navigation ul li:nth-child(1) {
     margin-bottom: 40px;
-    padding: 10px;
+    pointer-events: none;
 }
 
 .navigation ul li a {
@@ -58,7 +58,7 @@
 .navigation ul li a .icon {
     position: relative;
     display: block;
-    min-width: 30px;
+    min-width: 60px;
     height: 60px;
     line-height: 60px;
     text-align: center;
@@ -69,11 +69,11 @@
     display: block;
     padding: 0 10px;
     height: 60px;
+    line-height: 40px;
     text-align: start;
     white-space: nowrap;
 }
 
-/* curve outside */
 .navigation ul li:hover a::before, .navigation ul li.hovered a::before {
     content: "";
     position: absolute;
