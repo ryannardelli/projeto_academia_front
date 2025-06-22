@@ -1,5 +1,4 @@
 "use client";
-import "/public/styles/sidebar.css";
 import { CreditCard, Dumbbell, Grid, HeartPulse, LineChart, LogOut, Settings, User, Utensils } from 'lucide-react';
 
 type Props = {
@@ -20,7 +19,7 @@ function SideBar({ isActive }: Props) {
                 </li>
 
                 <li>
-                    <a href="#">
+                    <a href="/dashboard">
                         <span className="icon p-2">
                             <Grid className="w-[1.75rem] h-[1.75rem]" /> 
                         </span>                                                  
@@ -29,7 +28,7 @@ function SideBar({ isActive }: Props) {
                 </li>
 
                 <li>
-                    <a href="#">
+                    <a href="/dashboard/training">
                         <span className="icon p-2">
                             <Dumbbell className="w-[1.75rem] h-[1.75rem]" />
                         </span>

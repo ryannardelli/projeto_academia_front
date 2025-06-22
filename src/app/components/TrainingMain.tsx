@@ -2,11 +2,11 @@
 
 import { useState } from "react";
 import ContentMain from "./ContentMain";
-import ContentDashboard from "./ContentDashboard";
+import ContentTraining from "./ContentTraining";
 import SideBar from "./SideBar";
 import "/public/styles/sidebar.css";
 
-function DashboardMain() {
+function TrainingMain() {
 
     const [sidebarActive, setSidebarActive] = useState(false);
 
@@ -19,14 +19,14 @@ function DashboardMain() {
              <div className="container">
                 <SideBar isActive={sidebarActive} />
             </div>
-            
+                  
             <div className={`main ${sidebarActive ? "active" : ""}`}>
                 <ContentMain onToggle={handleToggle} />
-                <ContentDashboard />
+                <ContentTraining />
             </div>     
         </div>
        
     );
 }
 
-export default DashboardMain;
+export default TrainingMain;
