@@ -1,3 +1,5 @@
+"use client";
+
 function FormLogin() {
     return(
     <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-gray-900 to-black">
@@ -64,9 +66,9 @@ function FormLogin() {
               </div>
              
               <div className="mt-6">
-                    <button
-                        type="button"
-                        className="w-full py-2.5 px-4 text-[15px] font-medium rounded-lg flex items-center justify-center gap-2 border border-gray-600 text-white hover:bg-gray-700 transition duration-200"
+                    <a
+                        href="http://localhost:8080/oauth2/authorization/google"
+                        className="w-full py-2.5 px-4 cursor-pointer text-[15px] font-medium rounded-lg flex items-center justify-center gap-2 border border-gray-600 text-white hover:bg-gray-700 transition duration-200"
                     >
                         <img
                         src="https://www.svgrepo.com/show/475656/google-color.svg"
@@ -74,7 +76,7 @@ function FormLogin() {
                         className="w-5 h-5"
                         />
                         Continuar com Google
-                    </button>
+                    </a>
                 </div>
 
                 <div className="mt-6">
