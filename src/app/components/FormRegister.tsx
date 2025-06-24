@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { toast } from "react-toastify";
+import { useRouter } from "next/navigation";
 
 function FormRegister() {
 
@@ -15,6 +16,8 @@ function FormRegister() {
             cpassword: "",
         });
   }
+
+  const router = useRouter();
 
   type FormData = {
     fname: string;
@@ -73,8 +76,9 @@ function FormRegister() {
         });
 
         if(response.ok) {
-          toast.success("Cadastro realizado com sucesso!");
+          // toast.success("Cadastro realizado com sucesso!");
           cleanForm();
+          router.push("/profile-setup");
         } else {
         const errorText = await response.text();
           toast.error(errorText, {
