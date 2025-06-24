@@ -4,6 +4,18 @@ import { useState } from "react";
 import { toast } from "react-toastify";
 
 function FormRegister() {
+
+  function cleanForm() {
+     setFormData({
+            fname: "",
+            lname: "",
+            email: "",
+            number: "",
+            password: "",
+            cpassword: "",
+        });
+  }
+
   const [formData, setFormData] = useState({
     fname: "",
     lname: "",
@@ -47,16 +59,15 @@ function FormRegister() {
 
         if(response.ok) {
           toast.success("Cadastro realizado com sucesso!");
-          setFormData({
-            fname: "",
-            lname: "",
-            email: "",
-            number: "",
-            password: "",
-            cpassword: "",
-        });
+          cleanForm();
         } else {
-        toast.error("Ocorreu um erro ao cadastrar. Tente novamente mais.");
+        const errorText = await response.text();
+          toast.error(errorText, {
+          autoClose: false, // fica na tela até o usuário clicar no X
+          closeOnClick: true, // permite fechar clicando
+        });
+
+          cleanForm();
       }
     } catch(e) {
       toast.error("Ocorreu um erro ao cadastrar. Tente novamente mais.");
