@@ -1,7 +1,11 @@
+import { ToastContainer } from "react-toastify";
 import FormLogin from "../components/FormLogin";
 
 export default function Login() {
   return (
-    <FormLogin />
+      <>
+      <ToastContainer/>
+      <FormLogin />
+      </>
   );
 }
