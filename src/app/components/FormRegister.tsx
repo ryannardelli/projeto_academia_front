@@ -16,20 +16,32 @@ function FormRegister() {
         });
   }
 
-  const [formData, setFormData] = useState({
+  type FormData = {
+    fname: string;
+    lname: string;
+    email: string;
+    number: string;
+    password: string;
+    cpassword: string;
+  }
+
+  const [formData, setFormData] = useState<FormData>({
     fname: "",
     lname: "",
     email: "",
     number: "",
     password: "",
     cpassword: "",
-  })
+  });
 
-   const handleChange = (e: React.ChangeEventHandler<HTMLInputElement>) => {
+  type FormField = keyof typeof formData;
+
+
+   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
       ...prev,
-      [name]: value,
+      [name as FormField]: value,
     }));
   };
 
@@ -37,7 +49,10 @@ function FormRegister() {
     e.preventDefault();
 
     if(formData.password !== formData.cpassword) {
-      toast.error("As senhas não coincidem.");
+      toast.error("As senhas não coincidem.", {
+        autoClose: false,
+        closeOnClick: true,
+      });
       return;
     }
 
@@ -66,8 +81,6 @@ function FormRegister() {
           autoClose: false, // fica na tela até o usuário clicar no X
           closeOnClick: true, // permite fechar clicando
         });
-
-          cleanForm();
       }
     } catch(e) {
       toast.error("Ocorreu um erro ao cadastrar. Tente novamente mais.");
