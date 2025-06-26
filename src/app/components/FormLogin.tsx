@@ -4,6 +4,8 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
 import Cookies from "js-cookie";
+import { jwtDecode } from "jwt-decode";
+
 
 function FormLogin() {
   const [formData, setFormData] = useState({
@@ -20,6 +22,13 @@ function FormLogin() {
       [name]: value,
     }));
   };
+
+    type JwtPayload = {
+      sub: string;
+      id: number;
+      role: string;
+      profileConfigured: string;
+    };
 
 const handleSubmit = async (e: React.FormEvent) => {
   e.preventDefault();
@@ -38,19 +47,32 @@ const handleSubmit = async (e: React.FormEvent) => {
     }
 
     const data = await res.json();
-    Cookies.set("token", data.token, {
+    const token = data.token;
+
+    Cookies.set("token", token, {
       secure: true,
       sameSite: "strict",
       path: "/",
     });
 
-    toast.success("Login realizado com sucesso!");
-    router.push("/dashboard");
+    if(token) {
+      toast.success("Login realizado com sucesso!");
+      const decoded: JwtPayload = jwtDecode(token);
+      console.log(decoded.profileConfigured);
+
+      if(decoded.profileConfigured) {
+        router.push("/dashboard");
+        return;
+      }
+
+      router.push("/profile-setup");
+    }
   } catch (err) {
     toast.error("Algo deu errado. Verifique seus dados e tente novamente.");
     console.log(err);
   }
 };
+
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-gray-900 to-black">
