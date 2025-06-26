@@ -23,7 +23,7 @@ function FormSetup() {
       try {
         const response = await fetch("http://localhost:8080/metadata/objectives");
         const data = await response.json();
-        setGoals(data); // Supondo que a API retorne um array de strings
+        setGoals(data);
       } catch (error) {
         console.error("Erro ao buscar objetivos:", error);
       }
