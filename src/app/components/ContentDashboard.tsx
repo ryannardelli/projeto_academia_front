@@ -7,6 +7,7 @@ import Cookies from "js-cookie";
 import { jwtDecode } from "jwt-decode";
 import { Users, Dumbbell, ListChecks, Salad, UtensilsCrossed } from "lucide-react";
 import InformationsUserTop from "./InformationsUserTop";
+import InformationsUserDiet from "./InformationsUserDiet";
 
 type JwtPayload = {
   id: number;
@@ -47,6 +48,7 @@ function ContentDashboard() {
     <div>
       <CardStats cards={cards} />
       <InformationsUserTop />
+      <InformationsUserDiet />
       <DetailsList />
     </div>
   );
