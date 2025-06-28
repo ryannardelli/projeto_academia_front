@@ -1,6 +1,6 @@
 function DetailsUser() {
   return (
-<div className=" bg-blue-100 rounded-xl shadow-md p-4 text-center">
+<div className=" bg-blue-100 rounded-xl shadow-md p-4 text-center max-w-md">
   <img
     src="https://storyblok-cdn.photoroom.com/f/191576/1176x882/f95162c213/profile_picture_hero_before.webp"
     alt="Profile"
