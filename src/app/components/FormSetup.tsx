@@ -1,5 +1,17 @@
 "use client";
 import { useEffect, useState } from "react";
+import Cookies from "js-cookie";
+import { jwtDecode } from "jwt-decode";
+import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
+
+type JwtPayload = {
+  id: number;
+  profileConfigured: boolean;
+  sub: string;
+  role: string;
+};
+
 
 function FormSetup() {
   const [formData, setFormData] = useState({
@@ -13,10 +25,9 @@ function FormSetup() {
     value: string;
   }
 
-  console.log("FormSetup renderizou");
-
 
   const [goals, setGoals] = useState<ObjectiveOption[]>([]);
+  const router = useRouter();
 
   useEffect(() => {
     const fetchGoals = async () => {
@@ -40,10 +51,77 @@ function FormSetup() {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log("Dados do perfil:", formData);
-  };
+  const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+  try {
+    const token = Cookies.get("token");
+
+    if (!token) {
+      toast.error("Token não encontrado");
+      return;
+    }
+
+    const decoded: JwtPayload = jwtDecode(token);
+
+    // 1. Criar perfil
+    const profileRes = await fetch("http://localhost:8080/profile", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({
+        height: formData.height,
+        weight: formData.weight,
+        objective: formData.goal,
+      }),
+    });
+
+    if (!profileRes.ok) {
+      toast.error("Erro ao cadastrar perfil");
+      return;
+    }
+
+    const createdProfile = await profileRes.json();
+    const profileId = createdProfile.id;
+    const userId = decoded.id;
+
+    // 2. Associar perfil ao usuário
+    const linkRes = await fetch(`http://localhost:8080/user/${userId}/profile/${profileId}`, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    if (!linkRes.ok) {
+      toast.error("Erro ao associar perfil ao usuário");
+      return;
+    }
+
+    // 3. Atualizar profileConfigured = true
+    const updateRes = await fetch(`http://localhost:8080/manageusers/${userId}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({
+        profileConfigured: true,
+      }),
+    });
+
+    if (!updateRes.ok) {
+      toast.error("Erro ao atualizar o perfil");
+      return;
+    }
+
+    router.push("/dashboard");
+
+  } catch (e) {
+    console.log(e);
+  }
+};
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-primary via-gray-900 to-black px-4">
