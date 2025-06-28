@@ -6,6 +6,7 @@ import DetailsList from "./DetailsList";
 import Cookies from "js-cookie";
 import { jwtDecode } from "jwt-decode";
 import { Users, Dumbbell, ListChecks, Salad, UtensilsCrossed } from "lucide-react";
+import InformationsUserTop from "./InformationsUserTop";
 
 type JwtPayload = {
   id: number;
@@ -22,7 +23,6 @@ function ContentDashboard() {
 
   const decoded: JwtPayload = jwtDecode(token);
   const role = decoded.role;
-  console.log(role);
 
   // Cards para ADM
     const cardsADM = [
@@ -46,6 +46,7 @@ function ContentDashboard() {
   return (
     <div>
       <CardStats cards={cards} />
+      <InformationsUserTop />
       <DetailsList />
     </div>
   );
