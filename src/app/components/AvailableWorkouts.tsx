@@ -1,72 +1,3 @@
-// "use client";
-// import { useEffect, useState } from "react";
-// import { WorkoutCard } from "./WorkoutCard";
-
-// type Training = {
-//   id: number;
-//   title: string;
-//   level: string;
-// };
-
-// type ApiResponse = {
-//   idTrainingProfile: number;
-//   training: {
-//     id_training: number;
-//     name: string;
-//     dateBeginTraining: string;
-//     dateEndTraining: string;
-//   };
-// };
-
-// export function AvailableWorkouts() {
-//   const [workouts, setWorkouts] = useState<Training[]>([]);
-//   const [loading, setLoading] = useState(true);
-
-//   useEffect(() => {
-//     const fetchTrainings = async () => {
-//       try {
-//         const response = await fetch("http://localhost:8080/profile/608/training");
-//         const data: ApiResponse[] = await response.json();
-
-//         const formatted = data.map((item) => ({
-//           id: item.training.id_training,
-//           title: item.training.name,
-//           level: "Ganho de Massa",
-//         }));
-
-//         setWorkouts(formatted);
-//       } catch (error) {
-//         console.error("Erro ao buscar treinos:", error);
-//       } finally {
-//         setLoading(false); // esconde o loading após a requisição
-//       }
-//     };
-
-//     fetchTrainings();
-//   }, []);
-
-//   return (
-//     <section>
-//       <h2 className="text-xl font-semibold mb-4">Seus Treinos</h2>
-
-//       {loading ? (
-//         <div className="text-center text-gray-500 py-10">Carregando treinos...</div>
-//       ) : (
-//         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-//           {workouts.map((workout) => (
-//             <WorkoutCard
-//               key={workout.id}
-//               title={workout.title}
-//               level={workout.level}
-//               onAdd={() => alert(`Adicionado treino: ${workout.title}`)}
-//             />
-//           ))}
-//         </div>
-//       )}
-//     </section>
-//   );
-// }
-
 "use client";
 import { useEffect, useState } from "react";
 import Cookies from "js-cookie";
@@ -80,7 +11,6 @@ type JwtPayload = {
 type Training = {
   id: number;
   title: string;
-  level: string;
   startDate: string;
   endDate: string;
 };
@@ -164,10 +94,8 @@ export function AvailableWorkouts() {
           <WorkoutCard
             key={workout.id}
             title={workout.title}
-            level={workout.level}
             startDate={workout.startDate}
             endDate={workout.endDate}
-            onAdd={() => alert(`Adicionado treino: ${workout.title}`)}
           />
         ))}
       </div>

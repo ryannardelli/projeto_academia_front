@@ -1,6 +1,5 @@
 import { AvailableWorkouts } from "./AvailableWorkouts";
 import WorkoutFilterHeader from "./WorkoutFilterHeader";
-import { WorkoutUser } from "./WorkoutUser";
 
 export default function WorkoutsDashboard() {
   return (
@@ -8,7 +7,6 @@ export default function WorkoutsDashboard() {
       <h1 className="text-2xl font-bold mb-6">Área de Treinos</h1>
       <WorkoutFilterHeader /> 
       <AvailableWorkouts />
-      <WorkoutUser />
     </div>
   );
 }
