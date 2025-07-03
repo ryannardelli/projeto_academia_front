@@ -1,33 +1,35 @@
-import { Pencil, Plus } from "lucide-react";
+"use client";
 
-interface WorkoutCardProps {
+import { CalendarDays, Dumbbell } from "lucide-react";
+
+type WorkoutCardProps = {
   title: string;
   level: string;
-  editable?: boolean;
-  onAdd?: () => void;
-  onEdit?: () => void;
-}
+  startDate: string;
+  endDate: string;
+};
 
-export function WorkoutCard({ title, level, editable, onAdd, onEdit }: WorkoutCardProps) {
+export function WorkoutCard({ title, startDate, endDate }: WorkoutCardProps) {
   return (
-    <div className="bg-white rounded-2xl shadow-md p-4 flex flex-col justify-between hover:shadow-xl transition">
-      <div>
-        <h3 className="text-lg font-bold">{title}</h3>
-        <p className="text-sm text-gray-500">Nível: {level}</p>
+    <div className="bg-gradient-to-br from-white to-gray-100 rounded-2xl shadow-md hover:shadow-lg transition-all p-6 border border-gray-200">
+      <div className="flex items-center gap-3 mb-4">
+        <Dumbbell className="text-indigo-600 w-6 h-6" />
+        <h3 className="text-xl font-bold text-gray-800">{title}</h3>
       </div>
 
-      <div className="mt-4 flex justify-end gap-2">
-        {!editable && onAdd && (
-          <button onClick={onAdd} className="bg-blue-600 text-white px-3 py-1 rounded-xl text-sm hover:bg-blue-700 flex items-center gap-1">
-            <Plus size={16} /> Adicionar
-          </button>
-        )}
+      <div className="flex items-center text-sm text-gray-600 gap-2 mb-1">
+        <CalendarDays className="w-4 h-4 text-gray-500" />
+        Início: {new Date(startDate).toLocaleDateString()}
+      </div>
+      <div className="flex items-center text-sm text-gray-600 gap-2">
+        <CalendarDays className="w-4 h-4 text-gray-500" />
+        Fim: {new Date(endDate).toLocaleDateString()}
+      </div>
 
-        {editable && onEdit && (
-          <button onClick={onEdit} className="bg-green-600 text-white px-3 py-1 rounded-xl text-sm hover:bg-green-700 flex items-center gap-1">
-            <Pencil size={16} /> Editar
-          </button>
-        )}
+      <div className="mt-4 text-right">
+        <button className="px-4 py-2 text-sm font-medium bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition">
+          Ver Detalhes
+        </button>
       </div>
     </div>
   );
