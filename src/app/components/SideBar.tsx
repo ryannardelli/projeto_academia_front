@@ -55,7 +55,7 @@ function SideBar({ isActive }: Props) {
                 </li>
 
                  <li>
-                    <a href="#">
+                    <a href="/dashboard/meal">
                         <span className="icon p-2">
                             <HandPlatter className="w-[1.75rem] h-[1.75rem]" />
                         </span>
