@@ -1,5 +1,5 @@
 "use client";
-import { CreditCard, Dumbbell, Grid, HeartPulse, LineChart, LogOut, Settings, User, Utensils } from 'lucide-react';
+import { CreditCard, Dumbbell, Grid, HeartPulse, LineChart, LogOut, Settings, User, Utensils, Activity, HandPlatter } from 'lucide-react';
 
 type Props = {
     isActive: boolean;
@@ -39,9 +39,27 @@ function SideBar({ isActive }: Props) {
                 <li>
                     <a href="#">
                         <span className="icon p-2">
+                            <Activity className="w-[1.75rem] h-[1.75rem]" />
+                        </span>
+                        <span className="title">Exercícios</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/dashboard/diet">
+                        <span className="icon p-2">
                             <Utensils className="w-[1.75rem] h-[1.75rem]" />
                         </span>
-                        <span className="title">Deitas</span>
+                        <span className="title">Dietas</span>
+                    </a>
+                </li>
+
+                 <li>
+                    <a href="#">
+                        <span className="icon p-2">
+                            <HandPlatter className="w-[1.75rem] h-[1.75rem]" />
+                        </span>
+                        <span className="title">Refeições</span>
                     </a>
                 </li>
 
